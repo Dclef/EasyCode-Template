@@ -136,4 +136,4 @@ knife4j.setting.enableFooter=false
 
 ### 出现中文乱码问题
 
-请自行将项目设置为utf-8格式，路径为File->Other Settings->Default Settings ->Editor->File Encodings
+请自行将项目设置为utf-8格式，路径为File->Settings->Editor->File Encodings

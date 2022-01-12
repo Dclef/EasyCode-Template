@@ -120,7 +120,7 @@ knife4j.setting.enableFooter=false
 
 如图：![](https://cdn.jsdelivr.net/gh/Dclef/CDN/img/2022-01-12-easycode-01-.png)
 
-### 4.导入插件
+### 4.导入模板(EasyCodeConfig.json)
 
 
 
@@ -135,3 +135,9 @@ knife4j.setting.enableFooter=false
 在游览器打开http://localhost:8080/doc.html 即可
 
 ![](https://cdn.jsdelivr.net/gh/Dclef/CDN/img/2022-01-12-easycode-04.png)
+
+## F&Q
+
+### 出现中文乱码问题
+
+请自行将项目设置为utf-8格式，路径为File->Other Settings->Default Settings ->Editor->File Encodings

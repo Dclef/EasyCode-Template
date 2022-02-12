@@ -1,4 +1,4 @@
-package icu.dclef.demo.config;
+package com.example.demo.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
@@ -13,11 +13,12 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+
 /**
  * swgger配置
  *
  * @author dclef
- * @since 2022-02-05 17:29:40
+ * @since 2022-02-12 09:22:22
  */
 @EnableKnife4j
 @Configuration
@@ -37,7 +38,7 @@ public class Knife4jConfiguration {
                 .apiInfo(apiInfo())
                 .groupName("1.0版本")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("icu.dclef.demo.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .extensions(openApiExtensionResolver.buildExtensions("默认接口")

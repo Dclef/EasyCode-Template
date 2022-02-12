@@ -1,26 +1,27 @@
-package icu.dclef.demo.until;
+package com.example.demo.until;
+
 import lombok.Data;
 
 /**
  * ajax请求的返回对象
  */
 @Data
-public class AJaxResult {
+public class AjaxResult {
     private Boolean success = true;
     private String message = "操作成功！！";
 
-    public static AJaxResult ok(){
-        return new AJaxResult();
+    public static AjaxResult ok() {
+        return new AjaxResult();
     }
 
 
-    public AJaxResult setSuccess(Boolean success) {
+    public AjaxResult setSuccess(Boolean success) {
         this.success = success;
         //返回当前线程操作的对象
         return this;
     }
 
-    public AJaxResult setMessage(String message) {
+    public AjaxResult setMessage(String message) {
         this.message = message;
         //返回当前线程操作的对象
         return this;

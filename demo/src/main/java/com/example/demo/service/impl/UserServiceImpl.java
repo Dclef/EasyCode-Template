@@ -1,14 +1,16 @@
-package icu.dclef.demo.service.impl;
+package com.example.demo.service.impl;
 
-import icu.dclef.demo.entity.User;
-import icu.dclef.demo.mapper.UserMapper;
-import icu.dclef.demo.query.UserQuery;
-import icu.dclef.demo.service.UserService;
-import icu.dclef.demo.until.PageList;
+
+
+
+import com.example.demo.entity.User;
+import com.example.demo.mapper.UserMapper;
+import com.example.demo.query.UserQuery;
+import com.example.demo.service.UserService;
+import com.example.demo.until.PageList;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -17,10 +19,10 @@ import java.util.List;
  * (User)表服务实现类
  *
  * @author dclef
- * @since 2022-02-05 17:29:40
+ * @since 2022-02-12 09:22:21
  */
 @Service("userService")
-@Transactional(readOnly = true,propagation = Propagation.SUPPORTS)
+@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
@@ -35,8 +37,10 @@ public class UserServiceImpl implements UserService {
     public User queryById(Long id) {
         return this.userMapper.queryById(id);
     }
+
     /**
      * 查询所有
+     *
      * @return 列表
      */
     @Override
@@ -50,14 +54,14 @@ public class UserServiceImpl implements UserService {
      * @param query 筛选条件
      * @return 查询结果
      */
-      @Override
-      public PageList<User> queryPage(UserQuery query) {
+    @Override
+    public PageList<User> queryPage(UserQuery query) {
         // 查询当前页的数据
         List<User> rows = userMapper.query(query);
         //查询总条数
-        Long total=userMapper.count(query);
+        Long total = userMapper.count(query);
 
-        return new PageList<>(total,rows);
+        return new PageList<>(total, rows);
     }
 
     /**

@@ -1,23 +1,25 @@
-package icu.dclef.demo.controller;
+package com.example.demo.controller;
 
-import icu.dclef.demo.entity.User;
-import icu.dclef.demo.query.UserQuery;
-import icu.dclef.demo.service.UserService;
-import icu.dclef.demo.until.AJaxResult;
-import icu.dclef.demo.until.PageList;
+import com.example.demo.entity.User;
+import com.example.demo.query.UserQuery;
+import com.example.demo.service.UserService;
 
+import com.example.demo.until.AjaxResult;
+import com.example.demo.until.PageList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
+
+
 /**
  * (User)表控制层
  *
  * @author dclef
- * @since 2022-02-05 17:29:40
+ * @since 2022-02-12 09:22:22
  */
 @Api(tags = "模块")
 @RestController
@@ -36,22 +38,22 @@ public class UserController {
      * @return 查询结果
      */
     @ApiOperation(value = "分页查询")
-    @RequestMapping(value ="/page",method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/page", method = RequestMethod.GET, produces = "application/json")
     public PageList<User> page(UserQuery query) {
         return userService.queryPage(query);
     }
-    
-   /**
+
+    /**
      * 查询所有
      *
      * @return 查询结果
      */
     @ApiOperation(value = "查询所有")
-    @RequestMapping(value ="/list",method = RequestMethod.GET, produces = "application/json")
-    public List<User> list(){
-        return  this.userService.queryAll();
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json")
+    public List<User> list() {
+        return this.userService.queryAll();
     }
-    
+
     /**
      * 通过主键查询单条数据
      *
@@ -59,7 +61,7 @@ public class UserController {
      * @return 单条数据
      */
     @ApiOperation(value = "查询单条数据")
-    @RequestMapping(value ="/{id}",method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<User> queryById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(this.userService.queryById(id));
     }
@@ -71,17 +73,17 @@ public class UserController {
      */
     @ApiOperation(value = "新增或删除")
     @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
-    public AJaxResult addOrUpdate(User user) {
-      try {
-            if (user.getId()==null){
+    public AjaxResult addOrUpdate(User user) {
+        try {
+            if (user.getId() == null) {
                 userService.insert(user);
-            }else {
+            } else {
                 userService.update(user);
             }
-            return AJaxResult.ok();
+            return AjaxResult.ok();
         } catch (Exception e) {
             e.printStackTrace();
-            return AJaxResult
+            return AjaxResult
                     .ok()
                     .setSuccess(false)
                     .setMessage("系统错误,请重试");
@@ -89,7 +91,6 @@ public class UserController {
 
     }
 
-  
 
     /**
      * 删除数据
@@ -97,14 +98,14 @@ public class UserController {
      * @param id 主键
      * @return 删除是否成功
      */
-    
+
     @ApiOperation(value = "删除")
-    @RequestMapping(value ="/{id}",method = RequestMethod.DELETE, produces = "application/json")
-     public AJaxResult deleteById(@PathVariable("id")Long id) {
-        if (this.userService.deleteById(id)){
-            return AJaxResult.ok();
-        }else {
-             return AJaxResult
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "application/json")
+    public AjaxResult deleteById(@PathVariable("id") Long id) {
+        if (this.userService.deleteById(id)) {
+            return AjaxResult.ok();
+        } else {
+            return AjaxResult
                     .ok()
                     .setSuccess(false)
                     .setMessage("操作失败，请重试");

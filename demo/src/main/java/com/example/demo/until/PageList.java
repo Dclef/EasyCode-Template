@@ -1,4 +1,4 @@
-package icu.dclef.demo.until;
+package com.example.demo.until;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,11 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 分页工具类
  *
  * @author dclef
- * @since 2022-02-05 17:29:40
+ * @since 2022-02-12 09:22:22
  */
 @Data
 //全参数构造器
@@ -21,11 +22,11 @@ public class PageList<T> {
     /**
      * 计算总条数
      */
-    private  Long total;
-   
+    private Long total;
+
     /**
      * 列表展示
      */
-    private  List<T> rows=new ArrayList<>();
+    private List<T> rows = new ArrayList<>();
 
 }

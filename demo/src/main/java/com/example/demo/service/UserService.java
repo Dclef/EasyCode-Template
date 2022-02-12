@@ -1,16 +1,17 @@
-package icu.dclef.demo.service;
+package com.example.demo.service;
 
-import icu.dclef.demo.entity.User;
-import icu.dclef.demo.query.UserQuery;
-import icu.dclef.demo.until.PageList;
+import com.example.demo.entity.User;
+import com.example.demo.query.UserQuery;
+import com.example.demo.until.PageList;
 
 import java.util.List;
 import java.util.Map;
+
 /**
  * (User)表服务接口
  *
  * @author dclef
- * @since 2022-02-05 17:29:40
+ * @since 2022-02-12 09:22:21
  */
 public interface UserService {
 
@@ -21,11 +22,14 @@ public interface UserService {
      * @return 实例对象
      */
     User queryById(Long id);
-   /**
+
+    /**
      * 查询所有
+     *
      * @return 对象列表
      */
     List<User> queryAll();
+
     /**
      * 分页查询
      *
@@ -36,13 +40,11 @@ public interface UserService {
 
     /**
      * 新增数据
-     *
      */
     void insert(User user);
 
     /**
      * 修改数据
-     *
      */
     void update(User user);
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="icu.dclef.springboottemplate.mapper.UserMapper">
+
+    <resultMap type="icu.dclef.springboottemplate.entity.User" id="UserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="nickName" column="nickName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserMap">
+        select
+          id, username, password, nickName
+        from t_user
+        where id = #{id}
+    </select>
+  <!--  查询所有  -->
+    <select id="queryAll" resultMap="UserMap">
+      select
+          id, username, password, nickName
+        from t_user
+    </select>
+    <!--查询指定行数据-->
+    <select id="query" resultMap="UserMap">
+        select
+          id, username, password, nickName
+        from t_user
+     <where>
+			<if test="keywords!=null and keywords!=''">
+				and title like concat('%',#{keywords},'%')
+			</if>
+		</where>
+		limit #{beginIndex},#{pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(*)
+        from t_user
+         <where>
+		<if test="keywords!=null and keywords!=''">
+			and title like concat('%',#{keywords},'%')
+			</if>
+		</where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into t_user(username, password, nickName)
+        values (#{username}, #{password}, #{nickName})
+    </insert>
+  
+ 
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update t_user
+        <set>
+                username = #{username},
+                password = #{password},
+                nickName = #{nickName},
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from t_user where id = #{id}
+    </delete>
+<!--  批量删除-->
+    <delete id="deletePatch">
+        delete
+        from  t_user where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+

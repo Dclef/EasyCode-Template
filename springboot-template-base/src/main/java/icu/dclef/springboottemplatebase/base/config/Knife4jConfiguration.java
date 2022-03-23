@@ -37,7 +37,7 @@ public class Knife4jConfiguration {
                 .apiInfo(apiInfo())
                 .groupName("1.0版本")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("icu.dclef.springboottemplatebase.base.controller"))
+                .apis(RequestHandlerSelectors.basePackage("icu.dclef.springboottemplatebase.org.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .extensions(openApiExtensionResolver.buildExtensions("默认接口")

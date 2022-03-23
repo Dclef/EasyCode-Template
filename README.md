@@ -93,7 +93,7 @@ server.port=8080
 
 #数据库连接信息
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://127.0.0.1:3306/ssm?useUnicode=true&characterEncoding=utf8&useSSL=true
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/cms?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8
 spring.datasource.username=root
 spring.datasource.password=123456
 

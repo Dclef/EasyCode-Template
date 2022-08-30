@@ -7,13 +7,6 @@
 ### 1.在pom.xml中导包
 
 ```xml
-<properties>
-    <java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-</properties>
-
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -72,17 +65,7 @@
     </dependency>
 </dependencies>
 
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>${spring-boot.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
+
 ```
 
 ### 2.配置application.properties
@@ -117,9 +100,12 @@ knife4j.setting.enableFooter=false
 如图：![](https://cdn.jsdelivr.net/gh/Dclef/CDN/img/2022-01-12-easycode-01-.png)
 
 ### 4.导入模板(EasyCodeConfig.json)
+云端
+```txt
+dabbc2547d157abca06a410a7280cf
+```
 
-
-
+本地
 ![](https://cdn.jsdelivr.net/gh/Dclef/CDN/img/2022-01-12_easycode-02.png)
 
 ### 5.使用
